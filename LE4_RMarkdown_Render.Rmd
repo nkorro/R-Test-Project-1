@@ -17,4 +17,38 @@ This documentation gives an overview of your transactions during the last year.
 
 
 
+# Data overview
+```{r data overview, include=FALSE}
+library(data.table)
+library(lubridate)
+library(ggplot2)
+
+myData <- fread("transactions.csv")
+myData[, TransDate:=dmy(TransDate, tz="UTC")]
+
+max(myData$TransDate)
+myData <- myData[TransDate >= "2012-01-01",]
+```
+
+```{r, echo = FALSE}
+library(pander)
+pander(summary(myData), caption = "Summary statistics", split.table = Inf, split.cells = c(6,8,5,7,7,9,6))
+```
+
+
+# Number of transactions
+Here we can see the ditribution of number of transactions per month over the last year.
+```{r plot, include = FALSE}
+myData[,month := as.numeric(format(TransDate, format = "%m"))]
+myData[,month:=month.abb[month]]
+```
+
+```{r, echo = FALSE}
+ggplot(myData, aes(x=month)) + geom_bar() +
+  labs(x="", y="Transactions", title="Transactions per Month") +
+  scale_x_discrete(labels=month.abb)
+
+```
+
+
 # Literature
