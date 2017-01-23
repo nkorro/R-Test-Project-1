@@ -1,0 +1,10 @@
+---
+title: "Create Word files"
+author: "John Smith"
+date: "February 6th,2017"
+output:
+  word_document: default
+  html_notebook: default
+  pdf_document: default
+  html_document: default
+---
