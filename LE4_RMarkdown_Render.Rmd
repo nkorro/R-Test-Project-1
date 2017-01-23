@@ -27,3 +27,9 @@ myData[, TransDate:=dmy(TransDate, tz="UTC")]
 max(myData$TransDate)
 myData <- myData[TransDate >= "2012-01-01",]
 ```
+
+
+```{r, echo = FALSE}
+library(pander)
+pander(summary(myData), caption = "Summary statistics", split.table = Inf, split.cells = c(6,8,5,7,7,9,6))
+```
