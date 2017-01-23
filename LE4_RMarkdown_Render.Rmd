@@ -33,3 +33,13 @@ myData <- myData[TransDate >= "2012-01-01",]
 library(pander)
 pander(summary(myData), caption = "Summary statistics", split.table = Inf, split.cells = c(6,8,5,7,7,9,6))
 ```
+
+
+
+```{r, echo = FALSE}
+ggplot(myData, aes(x=month)) + geom_bar() +
+  labs(x="", y="Transactions", title="Transactions per Month") +
+  scale_x_discrete(labels=month.abb)
+
+```
+
