@@ -1,6 +1,6 @@
 ---
-title: "Create Word files"
-author: "John Smith"
+title: "Export Report to Word"
+author: "Patrick Bachmann"
 date: "February 6th,2017"
 output:
   word_document: default
